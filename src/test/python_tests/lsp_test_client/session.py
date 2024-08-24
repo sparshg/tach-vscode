@@ -123,9 +123,7 @@ class LspSession(MethodDispatcher):
 
         self.server_initialized.wait()
         if self._sub.returncode != 0:
-            raise RuntimeError(
-                f"Subprocess failed:\n { self._sub.stderr.read().decode() }"
-            )
+            raise RuntimeError(f"Subprocess failed")
 
     def initialized(self, initialized_params=None):
         """Sends the initialized notification to LSP server."""
